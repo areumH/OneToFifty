@@ -1,0 +1,25 @@
+.header {
+  background-color: rgb(197, 245, 245);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+}
+.content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+.name {
+  font-size: 20px;
+  color: dimgray;
+  margin-left: 40px;
+}
+.text {
+  font-weight: bold;
+  font-size: 25px;
+}
+.side_bar {
+  margin-right: 40px;
+}
