@@ -1,7 +1,7 @@
 import "./cell.css";
 
-const Cell = ({ num }) => {
-  return <cell className="cell"> {num} </cell>;
+const Cell = ({ num, handleClick}) => {
+  return <cell className="cell" onClick = {() => {handleClick(num)}}>{num}</cell>;
 };
 
 export default Cell;

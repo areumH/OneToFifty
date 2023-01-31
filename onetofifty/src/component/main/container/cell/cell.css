@@ -1,10 +1,11 @@
 .cell {
     display: flex;
-    border: 1px solid black;
-    background-color: lightblue;
+    border: 1px solid white;
+    background-color: navy;
     justify-content: center;
     align-items: center;
 
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
+    color: white;
 }
