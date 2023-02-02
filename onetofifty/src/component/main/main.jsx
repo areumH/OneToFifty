@@ -17,6 +17,7 @@ const Main = () => {
   const [running, setRunning] = useState(false);
   const [current, setCurrent] = useState(1);
   const [newArr, setNewArr] = useState(arr_2);
+  const [done, setDone] = useState(false);
 
   const shuffleArray = (array) => {
     let shuffled = [];
@@ -31,24 +32,22 @@ const Main = () => {
   const handleClick = (num) => {
     if (num === current && running) {
       if (num === 50) {
-        console.log("끝")
+        console.log("끝");
+        setDone(true);
       }
-      
+
       const n = numbers.indexOf(num);
       const i = Math.floor(Math.random() * newArr.length);
-      setNumbers(numbers => [
-        ...numbers.slice(0,n),
+      setNumbers((numbers) => [
+        ...numbers.slice(0, n),
         num < 26 ? newArr[i] : "",
-        ...numbers.slice(n+1)
+        ...numbers.slice(n + 1),
       ]);
-      setNewArr(newArr => [
-        ...newArr.slice(0,i),
-        ...newArr.slice(i+1)
-      ])
+      setNewArr((newArr) => [...newArr.slice(0, i), ...newArr.slice(i + 1)]);
 
-      setCurrent(current+1);
+      setCurrent(current + 1);
     }
-  }
+  };
 
   const startGame = () => {
     setNumbers(shuffleArray(arr_1));
@@ -56,25 +55,36 @@ const Main = () => {
     // let startTime = new Date();
   };
 
-  /*
+  /* 
   const endGame = () => {
     let endTime = new Date();
     setRunning(false);
-  }
+    setDone(true);
+  };
   */
+
+  const appendText = () => {
+    if (done) {
+      return (
+        <button className="button" onClick={() => {window.location.reload()}}>다시 시작</button>
+      )
+    } else {
+      return(
+        <div className="timer_text">~~~ 시간을 기록하고 있어요 ~~~</div>
+      )
+    }
+  }
 
   return (
     <main className="main">
-      <Container array={numbers} handleClick = {handleClick} />
+      <Container array={numbers} handleClick={handleClick} />
       <div>
         {running === false ? (
           <button className="button" onClick={startGame}>
             게임 시작
           </button>
         ) : (
-          <div className="timer_text">
-            ~~~ 시간을 기록하고 있어요 ~~~
-          </div>
+          appendText()
         )}
       </div>
     </main>
