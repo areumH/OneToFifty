@@ -18,6 +18,7 @@ const Main = () => {
   const [current, setCurrent] = useState(1);
   const [newArr, setNewArr] = useState(arr_2);
   const [done, setDone] = useState(false);
+  const [timer, setTimer] = useState([]);
 
   const shuffleArray = (array) => {
     let shuffled = [];
@@ -32,8 +33,10 @@ const Main = () => {
   const handleClick = (num) => {
     if (num === current && running) {
       if (num === 50) {
-        console.log("끝");
-        setDone(true);
+        endGame();
+        console.log((timer[1] - timer[0]).toFixed(3));
+        setTimer((timer) => timer.splice(0, 2));
+        console.log(timer);
       }
 
       const n = numbers.indexOf(num);
@@ -44,7 +47,6 @@ const Main = () => {
         ...numbers.slice(n + 1),
       ]);
       setNewArr((newArr) => [...newArr.slice(0, i), ...newArr.slice(i + 1)]);
-
       setCurrent(current + 1);
     }
   };
@@ -52,34 +54,41 @@ const Main = () => {
   const startGame = () => {
     setNumbers(shuffleArray(arr_1));
     setRunning(true);
-    // let startTime = new Date();
+
+    timer.push(new Date().getTime() / 1000);
+    console.log(timer);
   };
 
-  /* 
   const endGame = () => {
-    let endTime = new Date();
     setRunning(false);
     setDone(true);
+    console.log("끝");
+
+    timer.push(new Date().getTime() / 1000);
   };
-  */
 
   const appendText = () => {
     if (done) {
       return (
-        <button className="button" onClick={() => {window.location.reload()}}>다시 시작</button>
-      )
+        <button
+          className="button"
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          다시 시작
+        </button>
+      );
     } else {
-      return(
-        <div className="timer_text">~~~ 시간을 기록하고 있어요 ~~~</div>
-      )
+      return <div className="timer_text">~~~ 시간을 기록하고 있어요 ~~~</div>;
     }
-  }
+  };
 
   return (
     <main className="main">
       <Container array={numbers} handleClick={handleClick} />
       <div>
-        {running === false ? (
+        {running === false && done === false ? (
           <button className="button" onClick={startGame}>
             게임 시작
           </button>
