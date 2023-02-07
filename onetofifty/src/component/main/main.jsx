@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./main.css";
 import Container from "./container/container";
+import Modal from "./modal/modal";
 
 let arr_1 = [];
 for (let i = 1; i < 26; i++) {
@@ -17,8 +18,11 @@ const Main = () => {
   const [running, setRunning] = useState(false);
   const [current, setCurrent] = useState(1);
   const [newArr, setNewArr] = useState(arr_2);
+
+  const [modal, setModal] = useState(false);
   const [done, setDone] = useState(false);
   const [timer, setTimer] = useState([]);
+  let time;
 
   const shuffleArray = (array) => {
     let shuffled = [];
@@ -34,7 +38,9 @@ const Main = () => {
     if (num === current && running) {
       if (num === 50) {
         endGame();
-        console.log((timer[1] - timer[0]).toFixed(3));
+        time = (timer[1] - timer[0]).toFixed(3);
+        console.log(timer);
+        console.log(time);
         setTimer((timer) => timer.splice(0, 2));
         console.log(timer);
       }
@@ -62,6 +68,7 @@ const Main = () => {
   const endGame = () => {
     setRunning(false);
     setDone(true);
+    setModal(true);
     console.log("끝");
 
     timer.push(new Date().getTime() / 1000);
@@ -86,6 +93,7 @@ const Main = () => {
 
   return (
     <main className="main">
+      <div>{modal === true ? <Modal timer={timer} /> : null}</div>
       <Container array={numbers} handleClick={handleClick} />
       <div>
         {running === false && done === false ? (
