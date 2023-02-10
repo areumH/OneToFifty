@@ -17,7 +17,7 @@ const Header = () => {
         </div>
       </div>
       <div className={isOpen ? "open" : "hide"}>
-        <div className="table_text">점수 순위표</div>
+        <div className="table_text">기록 순위표</div>
       </div>
     </header>
   );

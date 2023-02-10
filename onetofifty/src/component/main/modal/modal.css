@@ -8,8 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 .modal_container {
   position: relative;
@@ -23,4 +23,36 @@
   border: 2px solid black;
   border-radius: 15px;
   background-color: white;
+}
+.time_text {
+  font-size: 27px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+.nickname {
+  width: 250px;
+  height: 30px;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 20px;
+}
+.button_text {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 27px;
+}
+.button_line {
+  margin-top: 13px;
+}
+.button_style {
+  width: 95px;
+  height: 45px;
+  font-size: 22px;
+  font-weight: 500;
+  border: 1.8px solid black;
+  border-radius: 5px;
+  background-color: ghostwhite;
+
+  margin: 0px 43px;
+  cursor: pointer;
 }

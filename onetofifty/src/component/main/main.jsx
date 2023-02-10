@@ -22,7 +22,6 @@ const Main = () => {
   const [modal, setModal] = useState(false);
   const [done, setDone] = useState(false);
   const [timer, setTimer] = useState([]);
-  let time;
 
   const shuffleArray = (array) => {
     let shuffled = [];
@@ -38,11 +37,6 @@ const Main = () => {
     if (num === current && running) {
       if (num === 50) {
         endGame();
-        time = (timer[1] - timer[0]).toFixed(3);
-        console.log(timer);
-        console.log(time);
-        setTimer((timer) => timer.splice(0, 2));
-        console.log(timer);
       }
 
       const n = numbers.indexOf(num);
@@ -61,8 +55,8 @@ const Main = () => {
     setNumbers(shuffleArray(arr_1));
     setRunning(true);
 
-    timer.push(new Date().getTime() / 1000);
-    console.log(timer);
+    setTimer((prev) => [...prev, new Date().getTime() / 1000]);
+    console.log(timer)
   };
 
   const endGame = () => {
@@ -71,7 +65,8 @@ const Main = () => {
     setModal(true);
     console.log("끝");
 
-    timer.push(new Date().getTime() / 1000);
+    setTimer((prev) => [...prev, new Date().getTime() / 1000]);
+    console.log(timer)
   };
 
   const appendText = () => {
@@ -93,7 +88,7 @@ const Main = () => {
 
   return (
     <main className="main">
-      <div>{modal === true ? <Modal timer={timer} /> : null}</div>
+      <div>{modal === true ? <Modal time={(timer[1]-timer[0]).toFixed(3)} modalOff={() => setModal(false)}/> : null}</div>
       <Container array={numbers} handleClick={handleClick} />
       <div>
         {running === false && done === false ? (
