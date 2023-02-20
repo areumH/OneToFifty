@@ -3,6 +3,11 @@ import "./modal.css";
 
 const Modal = ({ time, modalOff }) => {
   const [name, setName] = useState("");
+  
+  const onClick = () => {
+    console.log([name, time]);
+    modalOff();
+  }
 
   return (
     <modal className="modal_overlay">
@@ -18,7 +23,7 @@ const Modal = ({ time, modalOff }) => {
         ></input>
         <div className="button_text">해당 시간을 기록할까요?</div>
         <div className="button_line">
-          <button className="button_style"> 기록 </button>
+          <button className="button_style" onClick={onClick}> 기록 </button>
           <button className="button_style" onClick={modalOff}> 취소 </button>
         </div>
       </div>
