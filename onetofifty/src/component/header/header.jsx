@@ -1,8 +1,9 @@
 import { React, useState } from "react";
+import Score from "./score/score";
 import "./header.css";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const toggleMenu = () => {
     setIsOpen(isOpen => !isOpen);
   }
@@ -18,6 +19,9 @@ const Header = () => {
       </div>
       <div className={isOpen ? "open" : "hide"}>
         <div className="table_text">기록 순위표</div>
+        <div>
+          <Score />
+        </div>
       </div>
     </header>
   );

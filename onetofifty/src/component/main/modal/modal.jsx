@@ -16,7 +16,7 @@ const Modal = ({ time, modalOff }) => {
         <div className="time_text"> 이름을 입력하세요!</div>
         <input
           type="text"
-          maxLength="7"
+          maxLength="6"
           className="nickname"
           value={name}
           onChange={(e) => setName(e.target.value)}
