@@ -1,14 +1,9 @@
 import { React, useState } from "react";
+import { scoreArray } from "../../main/modal/modal";
 import "./score.css";
 
 const Score = () => {
-  const [score, setScore] = useState([
-    [35, "가나다라마바"],
-    [36, "ffff"],
-    [63, "ggg"],
-    [49, "아무거나"],
-    [83, "ppp"]
-  ]);
+  const [score, setScore] = useState(scoreArray);
   const onRemove = (index) => {
     setScore(score.filter((_, i) => i !== index));
   };
@@ -21,8 +16,8 @@ const Score = () => {
       >
         {index + 1}
       </div>
-      <div className="name_style"> {value[1]} </div>
-      <div className="score_style"> {value[0]} 초 </div>
+      <div className="name_style"> {value[0]} </div>
+      <div className="score_style"> {value[1]} 초 </div>
       <button className="remove_button" onClick={() => onRemove(index)}>
         ×
       </button>

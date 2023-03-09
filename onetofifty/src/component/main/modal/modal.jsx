@@ -1,11 +1,15 @@
 import { React, useState } from "react";
 import "./modal.css";
 
+export let scoreArray = [["dddd",45.625]];
+
 const Modal = ({ time, modalOff }) => {
   const [name, setName] = useState("");
-  
+
   const onClick = () => {
-    console.log([name, time]);
+    scoreArray.push([name, time]);
+    console.log([name,time]);
+    console.log(scoreArray);
     modalOff();
   }
 
