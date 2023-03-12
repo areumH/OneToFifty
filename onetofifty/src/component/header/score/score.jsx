@@ -1,12 +1,26 @@
-import { React, useState } from "react";
-import { scoreArray } from "../../main/modal/modal";
+import { React, useState, useEffect } from "react";
 import "./score.css";
 
 const Score = () => {
-  const [score, setScore] = useState(scoreArray);
+  const [score, setScore] = useState([]);
+
+  useEffect(() => {
+    const existingArray = JSON.parse(localStorage.getItem("myArray")) || [];
+    setScore(existingArray);
+  }, []);
+
   const onRemove = (index) => {
-    setScore(score.filter((_, i) => i !== index));
+    const newArray = [...score];
+    newArray.splice(index, 1);
+
+    localStorage.setItem("myArray", JSON.stringify(newArray));
+    setScore(newArray);
   };
+
+  const erase = () => {
+    localStorage.clear();
+    window.location.reload();
+  }
 
   const scoreList = score.map((value, index) => (
     <div key={index} className="score_line">
@@ -24,7 +38,11 @@ const Score = () => {
     </div>
   ));
 
-  return <div className="box_style">{scoreList}</div>;
+  return (
+    <score>
+      <div className="box_style">{scoreList}</div>
+    </score>
+  );
 };
 
 export default Score;

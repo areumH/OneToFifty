@@ -35,7 +35,7 @@ const Main = () => {
 
   const handleClick = (num) => {
     if (num === current && running) {
-      if (num === 50) {
+      if (num === 3) {
         endGame();
       }
 

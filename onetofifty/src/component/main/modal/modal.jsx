@@ -1,16 +1,16 @@
 import { React, useState } from "react";
 import "./modal.css";
 
-export let scoreArray = [["dddd",45.625]];
-
 const Modal = ({ time, modalOff }) => {
   const [name, setName] = useState("");
 
   const onClick = () => {
-    scoreArray.push([name, time]);
-    console.log([name,time]);
-    console.log(scoreArray);
+    const existingArray = JSON.parse(localStorage.getItem('myArray')) || [];
+    existingArray.push([name, time]);
+    localStorage.setItem('myArray',JSON.stringify(existingArray));
+
     modalOff();
+    window.location.reload();
   }
 
   return (
@@ -27,8 +27,8 @@ const Modal = ({ time, modalOff }) => {
         ></input>
         <div className="button_text">해당 시간을 기록할까요?</div>
         <div className="button_line">
-          <button className="button_style" onClick={onClick}> 기록 </button>
-          <button className="button_style" onClick={modalOff}> 취소 </button>
+          <button className="button_style" onClick={onClick}>기록</button>
+          <button className="button_style" onClick={modalOff}>취소</button>
         </div>
       </div>
     </modal>

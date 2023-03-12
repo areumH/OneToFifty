@@ -1,32 +1,45 @@
 .box_style {
-  margin-top: 40px;
-  margin-left: 35px;
-}
-.score_line {
-  margin-top: 15px;
-  display: flex;
-}
-
-.index_style {
-  font-size: 20px;
-  margin-right: 20px;
-}
-.topindex_style {
-  font-size: 22px;
-  margin-right: 20px;
-  font-weight: bold;
-}
-.name_style {
-  font-size: 20px;
-  width: 150px;
-}
-.score_style {
-  font-size: 22px;
-  width: 160px;
+    margin-top: 40px;
+    margin-left: 35px;
+  }
+  .score_line {
+    margin-top: 15px;
+    display: flex;
+  }
   
-}
-.remove_button {
-  border-radius: 32%;
-  background: white;
-  font-size: 18px;
-}
+  .index_style {
+    font-size: 20px;
+    width: 45px;
+  }
+  .topindex_style {
+    font-size: 22px;
+    width: 45px;
+    font-weight: bold;
+  }
+  .name_style {
+    font-size: 20px;
+    width: 150px;
+  }
+  .score_style {
+    font-size: 22px;
+    width: 160px;
+  }
+  
+  .remove_button {
+    border-radius: 32%;
+    background: white;
+    font-size: 18px;
+  }
+  .erase_button {
+    width: 70px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 1.8px solid black;
+    border-radius: 5px;
+    background-color: white;
+  
+    bottom: 0px;
+    cursor: pointer;
+  }
+  
