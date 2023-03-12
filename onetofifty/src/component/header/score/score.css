@@ -31,15 +31,19 @@
     font-size: 18px;
   }
   .erase_button {
-    width: 70px;
-    height: 35px;
+    width: 75px;
+    height: 40px;
     font-size: 20px;
     font-weight: 500;
-    border: 1.8px solid black;
+    border: 2px solid black;
     border-radius: 5px;
     background-color: white;
   
     bottom: 0px;
     cursor: pointer;
+
+    position: fixed;
+    margin-left: 330px;
+    margin-bottom: 45px;
   }
   

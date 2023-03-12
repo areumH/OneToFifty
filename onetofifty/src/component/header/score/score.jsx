@@ -41,6 +41,7 @@ const Score = () => {
   return (
     <score>
       <div className="box_style">{scoreList}</div>
+      <button className="erase_button" onClick={erase}>삭제</button>
     </score>
   );
 };
