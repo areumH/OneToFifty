@@ -3,10 +3,22 @@ import "./score.css";
 
 const Score = () => {
   const [score, setScore] = useState([]);
+  const getSort = (a, b) => {
+    const x = a[1];
+    const y = b[1];
+
+    if (x < y) {
+      return -1;
+    } else if (x > y) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
 
   useEffect(() => {
     const existingArray = JSON.parse(localStorage.getItem("myArray")) || [];
-    setScore(existingArray);
+    setScore(existingArray.sort(getSort));
   }, []);
 
   const onRemove = (index) => {
@@ -20,7 +32,7 @@ const Score = () => {
   const erase = () => {
     localStorage.clear();
     window.location.reload();
-  }
+  };
 
   const scoreList = score.map((value, index) => (
     <div key={index} className="score_line">
@@ -41,7 +53,9 @@ const Score = () => {
   return (
     <score>
       <div className="box_style">{scoreList}</div>
-      <button className="erase_button" onClick={erase}>삭제</button>
+      <button className="erase_button" onClick={erase}>
+        삭제
+      </button>
     </score>
   );
 };

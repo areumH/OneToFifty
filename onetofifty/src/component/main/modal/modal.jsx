@@ -5,13 +5,19 @@ const Modal = ({ time, modalOff }) => {
   const [name, setName] = useState("");
 
   const onClick = () => {
-    const existingArray = JSON.parse(localStorage.getItem('myArray')) || [];
-    existingArray.push([name, time]);
-    localStorage.setItem('myArray',JSON.stringify(existingArray));
+    const existingArray = JSON.parse(localStorage.getItem("myArray")) || [];
 
-    modalOff();
-    window.location.reload();
-  }
+    if (existingArray.length === 10) {
+      alert("10개까지만 등록이 가능합니다!");
+      
+    } else {
+      existingArray.push([name, time]);
+      localStorage.setItem("myArray", JSON.stringify(existingArray));
+
+      modalOff();
+      window.location.reload();
+    }
+  };
 
   return (
     <modal className="modal_overlay">
@@ -27,8 +33,12 @@ const Modal = ({ time, modalOff }) => {
         ></input>
         <div className="button_text">해당 시간을 기록할까요?</div>
         <div className="button_line">
-          <button className="button_style" onClick={onClick}>기록</button>
-          <button className="button_style" onClick={modalOff}>취소</button>
+          <button className="button_style" onClick={onClick}>
+            기록
+          </button>
+          <button className="button_style" onClick={modalOff}>
+            취소
+          </button>
         </div>
       </div>
     </modal>
