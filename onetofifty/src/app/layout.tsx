@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
+import Header from './Components/Header';
 
 export const metadata: Metadata = {
-  title: "OneToFifty",
+  title: 'OneToFifty',
 };
 
 export default function RootLayout({
@@ -12,7 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="flex flex-col w-screen h-screen items-center">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
