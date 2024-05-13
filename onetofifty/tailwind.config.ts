@@ -7,6 +7,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      size: {
+        'container' : '400px',
+      },
       colors: {
         'test-color': colors.red,
       }

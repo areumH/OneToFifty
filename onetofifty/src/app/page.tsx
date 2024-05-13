@@ -1,9 +1,11 @@
 'use client';
 
+import Container from "./Components/Container/Container";
+
 export default function Main() {
   return (
-    <div className="flex flex-col w-10/12 h-svh bg-test-color-100 text-blue-500">
-      OneToFifty 페이지
+    <div className="flex flex-col w-10/12 h-svh justify-center items-center">
+      <Container />
     </div>
   );
 }
