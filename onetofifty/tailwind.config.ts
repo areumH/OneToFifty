@@ -9,10 +9,14 @@ const config: Config = {
     extend: {
       size: {
         'container' : '400px',
+        'sideButton-border': '3px',
       },
       colors: {
         'test-color': colors.red,
-      }
+      },
+      animation: {
+        'sideButton-spin': 'spin 3s linear infinite',
+      },
     },
   },
   plugins: [],
