@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Container from './Components/Container/Container';
+import SideButton from './Components/SideButton';
 import shuffleArray from './Utils/shuffleArray';
 
 export default function Main() {
@@ -13,7 +14,7 @@ export default function Main() {
   };
 
   return (
-    <div className="flex flex-col w-10/12 h-svh justify-center items-center gap-12">
+    <div className="flex flex-col w-10/12 h-svh justify-center items-center relative gap-12">
       <Container array={numberArray} />
       <button
         className="w-28 h-12 bg-gray-900 text-white text-lg rounded-xl hover:bg-opacity-80"
@@ -21,6 +22,7 @@ export default function Main() {
       >
         게임 시작
       </button>
+      <SideButton />
     </div>
   );
 }
