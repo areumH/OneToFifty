@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import Container from './Components/Container/Container';
 import SideButton from './Components/SideButton';
+
 import shuffleArray from './Utils/shuffleArray';
+import { getCurrentTime } from './Utils/handleTime';
 
 export default function Main() {
   const firstArray: number[] = Array.from({ length: 25 }, (_, index) => index + 1);
@@ -14,15 +16,19 @@ export default function Main() {
   const [running, setRunning] = useState<boolean>(false);
   const [current, setCurrent] = useState<number>(1);
 
+  const [timer, setTimer] = useState<number[]>([]);
+
   const handleStartButton = () => {
     setNumberArray(shuffleArray(firstArray));
     setNewArray(shuffleArray(secondArray));
+
     setRunning(true);
+    setTimer((prev) => [...prev, getCurrentTime()]);
   };
 
   const handleClick = (item: number | string) => {
     if (item === current && running) {
-      current ===50 && endGame();
+      current === 50 && endGame();
 
       const idx = numberArray.indexOf(item);
       const num: number | undefined = newArray.shift();
@@ -35,8 +41,8 @@ export default function Main() {
 
   const endGame = () => {
     setRunning(false);
-    console.log('끝!');
-  }
+    setTimer((prev) => [...prev, getCurrentTime()]);
+  };
 
   return (
     <div className="flex flex-col w-10/12 h-svh justify-center items-center relative gap-12">
