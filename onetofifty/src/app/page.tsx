@@ -18,7 +18,7 @@ export default function Main() {
   const [current, setCurrent] = useState<number>(1);
 
   const [timer, setTimer] = useState<number[]>([]);
-  const [modal, setModal] = useState<boolean>(true);
+  const [modal, setModal] = useState<boolean>(false);
 
   const handleStartButton = () => {
     setNumberArray(shuffleArray(firstArray));
