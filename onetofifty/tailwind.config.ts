@@ -10,6 +10,7 @@ const config: Config = {
       size: {
         'container' : '400px',
         'sideButton-border': '3px',
+        'modal' : '330px',
       },
       colors: {
         'test-color': colors.red,
