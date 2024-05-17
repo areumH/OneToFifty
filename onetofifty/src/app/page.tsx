@@ -22,19 +22,21 @@ export default function Main() {
 
   const handleClick = (item: number | string) => {
     if (item === current && running) {
+      current ===50 && endGame();
+
       const idx = numberArray.indexOf(item);
       const num: number | undefined = newArray.shift();
       const newNum: number | string = num ? num : '';
 
-      setNumberArray((numbers: (number | string)[]) => [
-        ...numbers.slice(0, idx),
-        newNum,
-        ...numbers.slice(idx + 1),
-      ]);
-
+      numberArray[idx] = newNum;
       setCurrent(current + 1);
     }
   };
+
+  const endGame = () => {
+    setRunning(false);
+    console.log('끝!');
+  }
 
   return (
     <div className="flex flex-col w-10/12 h-svh justify-center items-center relative gap-12">
