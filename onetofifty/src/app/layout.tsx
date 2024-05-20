@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ThemeProvider } from 'next-themes';
 import Header from './Components/Header';
 
 export const metadata: Metadata = {
@@ -14,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col w-screen h-screen items-center">
-        <Header />
-        {children}
+        <ThemeProvider attribute="class">
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

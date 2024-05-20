@@ -56,7 +56,7 @@ export default function Main() {
         <div className="h-12 text-lg animate-bounce">시간을 측정하고 있어요 !</div>
       ) : (
         <button
-          className="w-28 h-12 bg-gray-900 text-white text-lg rounded-xl hover:bg-opacity-80"
+          className="w-28 h-12 bg-gray-900 dark:bg-white text-white dark:text-black text-lg rounded-xl hover:bg-opacity-80 dark:hover:bg-slate-300"
           onClick={handleStartButton}
         >
           게임 시작
