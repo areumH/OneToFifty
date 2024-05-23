@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Cell from './Cell';
 
 interface ContainerProps {
@@ -9,8 +9,19 @@ interface ContainerProps {
 }
 
 const Container: React.FC<ContainerProps> = ({ array, handleClick }) => {
+  const [currentColor, setCurrentColor] = useState<string>('bg-blue-400');
+
+  useEffect(() => {
+    const colorString: string | null = localStorage.getItem('colors');
+    
+    if (colorString !== null) {
+      const colorObj = JSON.parse(colorString);
+      setCurrentColor(colorObj.bg);
+    }
+  }, []);
+
   return (
-    <div className="grid grid-cols-5 grid-rows-5 p-2 gap-1.5 w-[400px] h-[400px] bg-blue-500 rounded-xl">
+    <div className={`grid grid-cols-5 grid-rows-5 p-2 gap-1.5 w-[400px] h-[400px] ${currentColor} rounded-xl`}>
       {array.map((el, idx) => (
         <Cell key={idx} item={el} handleClick={handleClick} />
       ))}
