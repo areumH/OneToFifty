@@ -8,9 +8,9 @@ export default function Setting() {
       <div className="flex flex-col items-center gap-7">
         <div className="text-xl font-bold">COLOR</div>
         <div className="flex flex-col gap-5">
-          <ColorSelector />
-          <ColorSelector />
-          <ColorSelector />
+          <ColorSelector container="border-violet-400" cell="bg-sky-300" />
+          <ColorSelector container="border-red-400" cell="bg-violet-300" />
+          <ColorSelector container="border-pink-400" cell="bg-yellow-300" />
         </div>
       </div>
     </div>
