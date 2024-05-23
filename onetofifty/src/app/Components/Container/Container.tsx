@@ -3,6 +3,12 @@
 import React, { useEffect, useState } from 'react';
 import Cell from './Cell';
 
+type ColorInfo = {
+  bg: string;
+  item: string;
+  id: number;
+};
+
 interface ContainerProps {
   array: (number | string)[];
   handleClick: (item: number | string) => void;
@@ -15,7 +21,7 @@ const Container: React.FC<ContainerProps> = ({ array, handleClick }) => {
     const colorString: string | null = localStorage.getItem('colors');
     
     if (colorString !== null) {
-      const colorObj = JSON.parse(colorString);
+      const colorObj: ColorInfo = JSON.parse(colorString);
       setCurrentColor(colorObj.bg);
     }
   }, []);

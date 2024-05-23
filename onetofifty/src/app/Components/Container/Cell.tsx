@@ -2,6 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 
+type ColorInfo = {
+  bg: string;
+  item: string;
+  id: number;
+};
+
 interface CellProps {
   item: number | string;
   handleClick: (item: number | string) => void;
@@ -14,7 +20,7 @@ const Cell: React.FC<CellProps> = ({ item, handleClick }) => {
     const colorString: string | null = localStorage.getItem('colors');
     
     if (colorString !== null) {
-      const colorObj = JSON.parse(colorString);
+      const colorObj: ColorInfo = JSON.parse(colorString);
       setCurrentColor(colorObj.item);
     }
   }, []);
