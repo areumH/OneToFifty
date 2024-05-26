@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { getElapsedTime } from '../Utils/handleTime';
+import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
+import fireStore from '../Firebase/firestore';
 import Link from 'next/link';
 
 interface ModalProps {
@@ -9,7 +11,8 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ array }) => {
-  const elapsedTime = getElapsedTime(array);
+  const elapsedTime: number = getElapsedTime(array);
+  const docRef = doc(collection(fireStore, 'onetofifty'), 'scoreList');
 
   const [nickName, setNickName] = useState<string>('');
   const [clicked, setClicked] = useState<boolean>(false);
@@ -18,8 +21,18 @@ const Modal: React.FC<ModalProps> = ({ array }) => {
     setNickName(e.target.value);
   };
 
-  const registerRanking = () => {
-    // 랭킹 등록 * * *
+  const registerRanking = async () => {
+    const docSnap = await getDoc(docRef);
+    const docData = docSnap.data()?.score || [];
+
+    const scoreData = {
+      name: nickName,
+      score: elapsedTime,
+    };
+
+    await updateDoc(docRef, {
+      score: [...docData, scoreData],
+    });
 
     setClicked(true);
   };
