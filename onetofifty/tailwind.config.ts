@@ -9,7 +9,6 @@ const config: Config = {
         container: '400px',
         'sideButton-border': '3px',
         modal: '330px',
-        rankItem: '500px',
       },
       colors: {
         'test-color': colors.red,
