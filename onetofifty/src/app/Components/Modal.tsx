@@ -43,16 +43,16 @@ const Modal: React.FC<ModalProps> = ({ array }) => {
 
   return (
     <div className="absolute w-full h-full top-0 flex justify-center items-center backdrop-blur">
-      <div className="flex flex-col w-[330px] py-6 justify-center relative bg-white border border-gray-300 rounded-xl shadow-xl">
+      <div className="flex flex-col w-[330px] py-6 justify-center relative bg-white dark:bg-black border border-gray-300 rounded-xl shadow-xl">
         {clicked ? (
           <div className="flex flex-col items-center gap-7">
-            <div className="pt-3 text-lg text-black">랭킹 등록 완료 !</div>
+            <div className="pt-3 text-lg text-black dark:text-white">랭킹 등록 완료 !</div>
             <div className="flex py-1 gap-10">
               <Link href="/ranking">
-                <button className="px-4 py-1.5 rounded-full bg-black text-white">랭킹 보기</button>
+                <button className="px-4 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black">랭킹 보기</button>
               </Link>
               <button
-                className="px-4 py-1.5 rounded-full bg-black text-white"
+                className="px-4 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black"
                 onClick={restartGame}
               >
                 다시 시작
@@ -61,9 +61,9 @@ const Modal: React.FC<ModalProps> = ({ array }) => {
           </div>
         ) : (
           <div className="flex flex-col items-center gap-3">
-            <div className="text-lg font-bold text-black">게임 결과</div>
-            <div className="text-md text-black after:content-['초']">{elapsedTime}</div>
-            <div className="text-black">랭킹 등록을 위한 이름을 입력해주세요!</div>
+            <div className="text-lg font-bold">게임 결과</div>
+            <div className="text-md after:content-['초']">{elapsedTime}</div>
+            <div className="text-md">랭킹 등록을 위한 이름을 입력해주세요!</div>
             <input
               type="text"
               maxLength={7}
@@ -73,13 +73,13 @@ const Modal: React.FC<ModalProps> = ({ array }) => {
             />
             <div className="flex pt-2 gap-10">
               <button
-                className="px-4 py-1.5 rounded-full bg-black text-white"
+                className="px-4 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black"
                 onClick={restartGame}
               >
                 취소
               </button>
               <button
-                className="px-4 py-1.5 rounded-full bg-black text-white"
+                className="px-4 py-1.5 rounded-full bg-black dark:bg-white text-white dark:text-black"
                 onClick={registerRanking}
               >
                 등록
