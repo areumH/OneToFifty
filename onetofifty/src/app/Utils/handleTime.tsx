@@ -4,7 +4,7 @@ const getCurrentTime = () => {
 };
 
 const getElapsedTime = (array: number[]) => {
-  const time: number = parseInt((array[1] - array[0]).toFixed(3));
+  const time: number = parseFloat((array[1] - array[0]).toFixed(3));
   return time;
 };
 
