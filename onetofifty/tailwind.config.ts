@@ -1,16 +1,15 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
 
 const config: Config = {
-  content: [
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ['./src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       size: {
-        'container' : '400px',
+        container: '400px',
         'sideButton-border': '3px',
-        'modal' : '330px',
+        modal: '330px',
+        rankItem: '500px',
       },
       colors: {
         'test-color': colors.red,
@@ -20,7 +19,8 @@ const config: Config = {
       },
     },
   },
-  darkMode: "class",
+  darkMode: 'class',
   plugins: [],
 };
+
 export default config;
