@@ -32,7 +32,7 @@ export default function Ranking() {
   }, []);
 
   return (
-    <div className="flex flex-col flex-grow-0 w-10/12 h-svh py-12">
+    <div className="flex flex-col w-10/12 h-svh py-10">
       <div className="flex flex-col items-center gap-8">
         <div className="text-xl font-bold">RANKING</div>
         <div className="flex flex-col w-5/12 min-w-60 gap-5">
